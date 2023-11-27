@@ -49,6 +49,12 @@ while True:
             ("(20)", "form()"),
             ("(21)", "mixedform()"),
             ("(22)", "passwordform()"),
+            ("(23)", "dselect()"),
+            ("(24)", "fselect()"),
+            ("(25)", "calendar()"),
+            ("(26)", "timebox()"),
+            ("(27)", "rangebox()"),
+            ("(28)", "yesno()"),
             ("(0)", "exit")
         ],
         help_button=True
@@ -394,6 +400,63 @@ while True:
                 help_tags=True,
                 insecure=True
             )
+            # input(f'You pressed {button_names[code]} got list: {list}')
+
+        elif tag == "(23)":
+            # check dselect()
+            code, path = d.dselect(
+                "/",
+                title="Directory Selector"
+            )
+            input(f'path: {path}')
+            # input(f'You pressed {button_names[code]} got list: {list}')
+
+        elif tag == "(24)":
+            # check fselect()
+            code, path = d.fselect(
+                "/",
+                title="Directory and File Selector"
+            )
+            input(f'path: {path}')
+            # input(f'You pressed {button_names[code]} got list: {list}')
+
+        elif tag == "(25)":
+            # check calendar()
+            code, date = d.calendar(
+                "This is a calendar",
+                day=-1, month=-1, year=-1,
+                title="Calendar"
+            )
+            input(f'date: {date}')
+            # input(f'You pressed {button_names[code]} got list: {list}')
+
+        elif tag == "(26)":
+            # check timebox()
+            code, time = d.timebox(
+                "This is a timebox",
+                hour=-1, minute=-1, second=-1,
+                title="Timebox"
+            )
+            input(f'time: {time}')
+            # input(f'You pressed {button_names[code]} got list: {list}')
+
+        elif tag == "(27)":
+            # check rangebox()
+            code, val = d.rangebox(
+                "This is a rangebox",
+                min=0, max=100, init=20,
+                title="Rangebox"
+            )
+            input(f'val: {val}')
+            # input(f'You pressed {button_names[code]} got list: {list}')
+
+        elif tag == "(28)":
+            # check yesno()
+            code = d.yesno(
+                "This is a Yes/No box",
+                title="Yes/No box"
+            )
+            input(f'code: {code}')
             # input(f'You pressed {button_names[code]} got list: {list}')
 
     elif code == d.ESC:
